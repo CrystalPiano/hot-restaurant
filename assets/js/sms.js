@@ -7,7 +7,7 @@ var client = new twilio(accountSid, authToken);
 client.messages.create({
   from: "+12248777213",
   to: "+13122869811",
-  body: "Your table is ready! Ba-Ba-BOP!!! *FLARE*"
+  body: "Your table is ready! Ba-Ba-BOP!!! 💥 *FLARE* 💥"
 }, function(err, message) {
   if(err) {
     console.error(err.message);
