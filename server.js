@@ -24,8 +24,12 @@ class reservation {
     }
 }
 
-var reservations = null;
-var waitlist = null;
+var reservations = [];
+var waitlist = [];
+
+var newguy = new reservation("testname", "124-4567", "email@email.com", "ID1234");
+reservations.push(newguy);
+
 // Routes
 // =============================================================
 
