@@ -23,11 +23,16 @@ class reservation {
     }
 }
 
-var newguy = new reservation("guy", "2131231", "we@we.com", "21231");
-
 var reservations = null;
 var waitlist = null;
 var hitcount = 0;
+
+var reservations = [];
+var waitlist = [];
+
+var newguy = new reservation("testname", "124-4567", "email@email.com", "ID1234");
+reservations.push(newguy);
+
 // Routes
 // =============================================================
 
