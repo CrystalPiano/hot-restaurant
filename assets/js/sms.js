@@ -13,3 +13,5 @@ client.messages.create({
     console.error(err.message);
   }
 });
+
+module.exports = sms;
