@@ -75,11 +75,11 @@
 
 				// Here we are logging the URL so we have access to it for troubleshooting
 				console.log("------------------------------------");
-				console.log("URL: " + currentURL + "/api/tables");
+				console.log("URL: " + currentURL + "/api/reservations");
 				console.log("------------------------------------");
 
 				// Here we then log the NYTData to console, where it will show up as an object.
-				console.log(tableData);
+				console.log(tableData[0].name);
 				console.log("------------------------------------")
 
 				// Loop through and display each of the customers
@@ -95,7 +95,7 @@
 
 
 					// Then display the remaining fields in the HTML (Section Name, Date, URL)
-					$("#tableWell-"+ i+1).append('<h2><span class="label label-primary">' + tableNumber + "</span> | " + tableData[i].customerID + "</h2>");
+					$("#tableWell-"+ i+1).append('<h2><span class="label label-primary">' + tableNumber + "</span> | " + tableData[i].name + "</h2>");
 				}
 			});
 	}
