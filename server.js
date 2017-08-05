@@ -49,20 +49,24 @@ app.get("/view", function(req, res) {
     res.sendFile(path.join(__dirname, "view.html"));
     hitcount++;
 });
+app.get("/count",function(req,res){
+    var showme = hitcount.toString();
+    res.end(showme);
+});
 
 // Create New Characters - takes in JSON input
 app.post("/api/new", function(req, res) {
     var newreservation = req.body;
-    console.log(newreservation);
-    console.log(reservations.length);
+    //console.log(newreservation);
+    //console.log(reservations.length);
     var addme = new reservation(newreservation.customerName, newreservation.phoneNumber, newreservation.customerEmail, newreservation.customerID);
     if(newreservation.customerName == "Mark Techson" || "mark techson"){
         reservations[0] == addme;
     }
     if(reservations.length < 5) {
-        console.log("before push: " + reservations);
+       // console.log("before push: " + reservations);
         reservations.push(addme);
-        console.log("after push: " + reservations);
+       // console.log("after push: " + reservations);
         res.json(1);
        // res.json(newreservation);
     }
