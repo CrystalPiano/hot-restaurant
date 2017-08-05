@@ -61,8 +61,6 @@
 
 </body>
 
-
-
 <script type="text/javascript">
 
 	function runTableQuery(){
@@ -123,7 +121,7 @@
 					var tableNumber = i + 1;
 
 					// Then display the remaining fields in the HTML (Section Name, Date, URL)
-					$("#waitlistWell-"+ i+1).append('<h2><span class="label label-primary">' + tableNumber + "</span> | " + waitlistData[i].customerID + "</h2>");
+					$("#waitlistWell-"+ i+1).append('<h2><span class="label label-primary">' + tableNumber + "</span> | " + waitlistData[i].name + "</h2>");
 				}
 			});
 	}

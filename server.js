@@ -59,10 +59,15 @@ app.post("/api/new", function(req, res) {
     var newreservation = req.body;
     //console.log(newreservation);
     //console.log(reservations.length);
+    
+    //make the object body into the class defined here
     var addme = new reservation(newreservation.customerName, newreservation.phoneNumber, newreservation.customerEmail, newreservation.customerID);
+    
     if(newreservation.customerName == "Mark Techson" || "mark techson"){
         reservations[0] == addme;
+        res.json(1);
     }
+    // check if more than 4 reservations are made
     if(reservations.length < 5) {
        // console.log("before push: " + reservations);
         reservations.push(addme);
@@ -70,6 +75,7 @@ app.post("/api/new", function(req, res) {
         res.json(1);
        // res.json(newreservation);
     }
+    // add to waitlist because more than 5 reservations are made
     else{
       console.log("reservations full, adding to wait list");
         waitlist.push(addme);
@@ -77,9 +83,11 @@ app.post("/api/new", function(req, res) {
        // res.json(newreservation);
     }
 });
+//return the reservations array
 app.get("/api/reservations", function(req, res){
   res.json(reservations);
 });
+//return the waitlist array
 app.get("/api/waitlist", function(req, res){
   res.json(waitlist);
 });
