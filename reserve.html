@@ -100,7 +100,7 @@
 		
 		var currentURL = window.location.origin;
 
-	    $.post(currentURL + "/view", newReservation,
+	    $.post(currentURL + "/api/new", newReservation,
 	    function(data){
 
 	    	// If a view is available... tell user they are booked.

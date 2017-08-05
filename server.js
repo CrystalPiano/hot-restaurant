@@ -61,12 +61,14 @@ app.post("/api/new", function(req, res) {
     }
     else if(reservation.length > 5) {
         reservations.push(newreservation);
-        res.json(newreservation);
+        res.send(1);
+       // res.json(newreservation);
     }
     else{
       console.log("reservations full, adding to wait list");
         waitlist.push(newwait);
-        res.json(newreservation);
+        res.send(0);
+       // res.json(newreservation);
     }
 });
 app.get("/api/reservations", function(req, res){
