@@ -23,10 +23,7 @@ class reservation {
     }
 }
 
-var reservations = null;
-var waitlist = null;
 var hitcount = 0;
-
 var reservations = [];
 var waitlist = [];
 
@@ -55,19 +52,24 @@ app.get("/view", function(req, res) {
 
 // Create New Characters - takes in JSON input
 app.post("/api/new", function(req, res) {
-    var newreservation = req.body
-    if(req.body.customerName == "Mark Techson" || "mark techson"){
-        reservations[0] == newreservation;
+    var newreservation = req.body;
+    console.log(newreservation);
+    console.log(reservations.length);
+    var addme = new reservation(newreservation.customerName, newreservation.phoneNumber, newreservation.customerEmail, newreservation.customerID);
+    if(newreservation.customerName == "Mark Techson" || "mark techson"){
+        reservations[0] == addme;
     }
-    else if(reservation.length > 5) {
-        reservations.push(newreservation);
-        res.send(1);
+    if(reservations.length < 5) {
+        console.log("before push: " + reservations);
+        reservations.push(addme);
+        console.log("after push: " + reservations);
+        res.json(1);
        // res.json(newreservation);
     }
     else{
       console.log("reservations full, adding to wait list");
-        waitlist.push(newwait);
-        res.send(0);
+        waitlist.push(addme);
+        res.json('');
        // res.json(newreservation);
     }
 });

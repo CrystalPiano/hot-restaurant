@@ -22,7 +22,7 @@
 
 			<div class="text-center">
 				<a href="\view"><button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list-alt"></span> View Tables</button></a>
-				<a href="index.html"><button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-home"></span></button></a>
+				<a href="/"><button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-home"></span></button></a>
 			</div>
 		</div>
 
@@ -36,8 +36,7 @@
 					</div>
 					<div class="panel-body">
 
-						<form role="form">
-
+						<form>
 							<div class="form-group">
 								<label for="">Name</label>
 								<input type="text" class="form-control" id="reserve_name">
@@ -55,11 +54,10 @@
 
 							<div class="form-group">
 								<label for="">Unique ID</label>
-								<input type="text" class="form-control" id="reserveUniqueID">
+								<input type="text" class="form-control" id="reserve_UniqueID">
 							</div>
-
-							<button type="submit" class="btn btn-primary submit">Submit</button>
 						</form>
+						<button class="btn btn-primary submit">Submit</button>
 
 					</div>
 				</div>
@@ -87,12 +85,13 @@
 
 	$(".submit").on("click", function(){
 
+		console.log("Button Clicked!");
 		// Here we grab the form elements
 		var newReservation = {
 			customerName: $('#reserve_name').val().trim(),
 			phoneNumber: $('#reserve_phone').val().trim(),
 			customerEmail: $('#reserve_email').val().trim(),
-			customerID: $('#reserve_uniqueID').val().trim()
+			customerID: $('#reserve_UniqueID').val().trim()
 		};
 
 		console.log(newReservation);
@@ -100,9 +99,8 @@
 		
 		var currentURL = window.location.origin;
 
-	    $.post(currentURL + "/api/new", newReservation,
+	    $.post("/api/new", newReservation,
 	    function(data){
-
 	    	// If a view is available... tell user they are booked.
 	    	if(data == true){
 	    		alert("Yay! You are officially booked!")
